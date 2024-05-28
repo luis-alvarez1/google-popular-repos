@@ -47,18 +47,34 @@ yarn start:dev
 
 # Run with Docker
 
-1. Create the `.env.prod` file.
-2. Fill the production environment variables.
+1. **Optional**: Create the `.env.prod` file.
+2. **Optional** Fill the environment variables.
 3. Build the new image:
+
+-   With prod environment variables:
 
 ```
 docker-compose --env-file .env.prod up --build
 ```
 
-4. You can also run this command for detached mode
+-   Without prod environment variables:
+
+```
+docker-compose up --build
+```
+
+4. You can also run detached mode with:
+
+-   With prod environment variables:
 
 ```
 docker-compose --env-file .env.prod up -d
+```
+
+-   Without prod environment variables:
+
+```
+docker-compose up -d
 ```
 
 # Testing
