@@ -13,7 +13,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN yarn build
 
-# Production image, copy all the files and run next
+# Production image, copy all the files and run nest
 FROM node:18-alpine3.18 AS runner
 
 # Set working directory

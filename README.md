@@ -2,40 +2,73 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-# Google 10 popular repositories
+# Google 10 most popular repositories - REST API
 
-## Description
+# API Documentation
 
-// TODO:
+-   [Postman Documentation](https://documenter.getpostman.com/view/9910504/2sA3QtdB3f)
 
-## Installation
+# Running in Development Mode
 
-```bash
-$ yarn install
+1. Clone the repository.
+2. Install dependencies using Yarn or NPM:
+
+```
+yarn install
 ```
 
-## Running the app
-
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+```
+npm install
 ```
 
-## Test
+3. Ensure that you have Nest CLI installed:
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
+npm i -g @nestjs/cli
+```
+
+4. Duplicate the `.env.template` file and rename the copy to `.env`.
+5. Fill in the environment variables defined in the .env file.
+6. Run the application in development mode with:
+
+```
+yarn start:dev
+```
+
+## Technology Stack
+
+-   Nest
+-   Octokit
+-   Docker-compose
+
+# Run with Docker
+
+1. Create the `.env.prod` file.
+2. Fill the production environment variables.
+3. Build the new image:
+
+```
+docker-compose --env-file .env.prod up --build
+```
+
+4. You can also run this command for detached mode
+
+```
+docker-compose --env-file .env.prod up -d
+```
+
+# Testing
+
+To run the tests, use the following command:
+
+```
+yarn test
+```
+
+```
+npm test
+```
+
+# Author
+
+-   Luis Alvarez, 31st May - 2024

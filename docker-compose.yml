@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile
         image: luisalvarez1106/google-popular-repos
         container_name: google-popular-repos
-        restart: always # reiniciar el contenedor si se detiene
+        restart: always
         ports:
             - '${PORT}:${PORT}'
         environment:
