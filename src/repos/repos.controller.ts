@@ -6,7 +6,7 @@ export class ReposController {
 	constructor(private readonly reposService: ReposService) {}
 
 	@Get()
-	findAll() {
-		return this.reposService.findAll();
+	findPopularRepos() {
+		return this.reposService.find10MostPopularRepos();
 	}
 }

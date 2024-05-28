@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    google-popular-repos:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: luisalvarez1106/google-popular-repos
+        container_name: google-popular-repos
+        restart: always # reiniciar el contenedor si se detiene
+        ports:
+            - '${PORT}:${PORT}'
+        environment:
+            GITHUB_AUTH_KEY: ${GITHUB_AUTH_KEY}
+            PORT: ${PORT}
