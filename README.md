@@ -4,6 +4,10 @@
 
 # Google 10 most popular repositories - REST API
 
+## Server instance running in cloud
+
+-   `http://172.233.27.51:3000/api/repos`
+
 # API Documentation
 
 -   [Postman Documentation](https://documenter.getpostman.com/view/9910504/2sA3QtdB3f)
