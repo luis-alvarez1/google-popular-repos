@@ -12,6 +12,7 @@ import { JoiEnvValidationSchema } from './common/config/joi.validation';
 		ConfigModule.forRoot({
 			load: [EnvConfiguration],
 			validationSchema: JoiEnvValidationSchema,
+			isGlobal: true,
 		}),
 		ReposModule,
 		CommonModule,

@@ -7,9 +7,9 @@ export class Repo {
 	description: null | string;
 	fork: boolean;
 	url: string;
-	created_at: Date;
-	updated_at: Date;
-	pushed_at: Date;
+	created_at: Date | string;
+	updated_at: Date | string;
+	pushed_at: Date | string;
 	git_url: string;
 	clone_url: string;
 	homepage: null | string;

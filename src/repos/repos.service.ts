@@ -5,8 +5,8 @@ import {
 	Logger,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { OctokitAdapter } from 'src/common/adapter/octokit.adapter';
-import { GithubAPIRepo } from 'src/common/interfaces/GithubAPIResponse';
+import { OctokitAdapter } from '../common/adapter/octokit.adapter';
+import { GithubAPIRepo } from '../common/interfaces/GithubAPIResponse';
 import { Repo } from './entities/repo.entity';
 
 @Injectable()
@@ -16,20 +16,19 @@ export class ReposService {
 		private readonly octokit: OctokitAdapter,
 	) {}
 
-	private readonly authKey: string | null =
-		this.configService.get('githubAuthKey');
-
 	private logger = new Logger('ReposService');
 
 	async find10MostPopularRepos() {
-		if (!this.authKey) {
+		const authKey: string | null = this.configService.get('githubAuthKey');
+
+		if (!authKey) {
 			throw new ForbiddenException(
 				'Error while reading Github Auth Key. Please provide a valid Github Auth Key',
 			);
 		}
 
 		try {
-			const response = await this.octokit.get(this.authKey, 'google');
+			const response = await this.octokit.get(authKey, 'google');
 
 			let data = this.mapResponse(response);
 
