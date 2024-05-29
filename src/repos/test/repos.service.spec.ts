@@ -3,6 +3,8 @@ import { ReposService } from '../repos.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { OctokitAdapter } from '../../common/adapter/octokit.adapter';
 import { GithubAPIRepo } from '../../common/interfaces/GithubAPIResponse';
+import { mockedGithubResponse } from './mockedGithubAPIResponse';
+import { Repo } from '../entities/repo.entity';
 import { mockedResponse } from './mockedReposResponse';
 
 describe('ReposService', () => {
@@ -31,7 +33,8 @@ describe('ReposService', () => {
 
 	describe('find10MostPopularRepos', () => {
 		it('should return the top 10 repositories sorted by stargazers count', async () => {
-			const githubResponse: GithubAPIRepo[] = mockedResponse;
+			const githubResponse: GithubAPIRepo[] = mockedGithubResponse;
+			const apiReponse: Repo[] = mockedResponse;
 			const authKey = process.env.GITHUB_AUTH_KEY;
 
 			jest.spyOn(octokit, 'get').mockResolvedValue(githubResponse);
@@ -40,7 +43,7 @@ describe('ReposService', () => {
 			const result = await reposService.find10MostPopularRepos();
 
 			expect(result).toHaveLength(10);
-			expect(result[0].name).toBe(githubResponse[0].name);
+			expect(result[0].name).toBe(apiReponse[0].name);
 		});
 
 		it('should throw an error if GitHub Auth Key is missing', async () => {
